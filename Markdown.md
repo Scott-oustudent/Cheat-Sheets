@@ -129,4 +129,5 @@ Syntax with url
 ![Keep calm](https://wallpapers.com/images/hd/keep-calm-and-keep-coding-ysb1jwkfm4fx7hhl.jpg "Poster example")
 
 
-I will be Addring to this so keep an Eye out 
+I will be Adding to this so keep an Eye out.
+
