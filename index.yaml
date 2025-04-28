@@ -1,27 +1,27 @@
 openapi: '3.0.0'
 info:
   version: '1.0.0'
-  title: 'Sample API'
-  description: Buy or rent spacecrafts
+  title: 'Get Users'
+  description: Get the contributors of the repo
 
 paths:
-  /spacecrafts/{spacecraftId}:
+  /users/{userID}:
     parameters:
-      - name: spacecraftId
-        description: The unique identifier of the spacecraft
+      - name: userID
+        description: The unique identifier of the User
         in: path
         required: true
         schema:
           $ref: '#/components/schemas/SpacecraftId'
     get:
-      summary: Read a spacecraft
+      summary: users by id
       responses:
         '200':
-          description: The spacecraft corresponding to the provided `spacecraftId`
+          description: The User corresponding to the `userID`
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Spacecraft'
+                $ref: '#/components/schemas/users'
         404:
           description: No spacecraft found for the provided `spacecraftId`
           content:
@@ -36,28 +36,21 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    SpacecraftId:
-      description: The unique identifier of a spacecraft
+    userID:
+      description: The unique identifier of a User
       type: string
-    Spacecraft:
-      type: object
+    User:
+      type: string
       required:
         - id
         - name
-        - type
       properties:
         id:
-          $ref: '#/components/schemas/SpacecraftId'
+          $ref: '#/components/schemas/userID'
         name:
           type: string
         type:
           type: string
-          enum:
-            - capsule
-            - probe
-            - satellite
-            - spaceplane
-            - station
         description:
           type: string
     Error:
@@ -66,7 +59,7 @@ components:
         - message
       properties:
         message:
-          description: A human readable error message
+          description: Error please try again
           type: string
   securitySchemes:
     ApiKey:
